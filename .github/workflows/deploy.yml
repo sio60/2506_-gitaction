@@ -25,11 +25,11 @@ jobs:
       - name: Build & Push Frontend Docker image
         run: |
           docker build \
-          --build-arg VITE_REQ_API_HOST=http://3.34.181.0:8080 \
           -t ${{ secrets.DOCKER_HUB_USERNAME }}/react-auth-final ./routerAndjwt
           echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/react-auth-final
 
+      # --build-arg VITE_REQ_API_HOST=http://3.34.181.0:8080 \
       # ---------------------------
       # 2️⃣ Deploy to EC2 via SSH
       # ---------------------------
