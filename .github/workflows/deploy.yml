@@ -53,7 +53,7 @@ jobs:
             # Run Spring Boot container 
             docker run -d --name spring_9jwt-final  \
             -p 8080:8080 \
-            --env-file ~/app-config/.env \
+            --env-file ~/spring-app/.env \
             "${{ secrets.DOCKER_HUB_USERNAME }}/spring_9jwt-final"
 
             # with DB env variables ⤴ env file 을 미리 ec2 에 복사했음
