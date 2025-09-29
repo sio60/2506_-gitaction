@@ -14,10 +14,10 @@ const NavBar = () => {
           </div>
         </div>
       )}
-      {isAuthenticated() ? <Logout /> : <Link to="/login">로그인</Link>}
             <div>
               <Link to="/boardList">전체 글</Link>
             </div>
+      {isAuthenticated() ? <Logout /> : <Link to="/login">로그인</Link>}
     </nav>
   );
 };
