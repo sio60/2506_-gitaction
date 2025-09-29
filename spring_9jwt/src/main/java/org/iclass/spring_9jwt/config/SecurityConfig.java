@@ -52,7 +52,7 @@ public class SecurityConfig {
 	}
 
 	private static String[] DEFAULT_ALLOWLIST = {
-			"/", "/js/**", "/css/**", "/images/**", "/api/auth/signup", "/api/auth/login", "/api/boards"
+			"/", "/js/**", "/css/**", "/images/**", "/api/auth/signup", "/api/auth/login"
 	};
 
 	private String[] FINAL_ALLOWLIST = null;

@@ -19,9 +19,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* ProtectedRoute 컴포넌트를 이용하여 로그인이 필요한 컴포넌트를 보호. */}
           <Route path="/boardList" element={
-            <PublicRoute>
+            <ProtectedRoute>
               <BoradList />
-            </PublicRoute>
+            </ProtectedRoute>
           } />
           <Route path="/myposts" element={
             <ProtectedRoute>
