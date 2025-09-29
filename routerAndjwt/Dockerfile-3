@@ -1,0 +1,5 @@
+FROM nginx:alpine
+COPY dist /usr/share/nginx/html
+EXPOSE 80
+# nginx 웹서버 실행
+CMD [ "nginx", "-g", "daemon off;" ]
