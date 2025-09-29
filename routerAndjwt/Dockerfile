@@ -14,13 +14,13 @@ COPY package*.json ./
 RUN npm install
 
 # 환경 변수 선언
-ARG VITE_REQ_API_HOST
-ENV VITE_REQ_API_HOST=$VITE_REQ_API_HOST
+# ARG VITE_REQ_API_HOST
+# ENV VITE_REQ_API_HOST=$VITE_REQ_API_HOST
 
 # 컨테이너 작업디렉토리에 .env 생성
-RUN echo "VITE_REQ_API_HOST=$VITE_REQ_API_HOST" > .env
+# RUN echo "VITE_REQ_API_HOST=$VITE_REQ_API_HOST" > .env
 
-# 프로젝트 소스 복사
+# 프로젝트 소스 복사. 현재 디렉토리 파일들을 컨테이너 작업디렉토리 app 으로 복사
 COPY . .
 
 # Vite build
@@ -33,7 +33,7 @@ FROM nginx:alpine
 
 
 # nginx 설정 파일 변경
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Nginx 기본 index.html 대신 Vite 빌드 산출물 사용
 COPY --from=build /app/dist /usr/share/nginx/html
