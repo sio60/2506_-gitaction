@@ -13,12 +13,12 @@ COPY package*.json ./
 # 의존성 설치
 RUN npm install
 
-# # 환경 변수 선언
-# ARG VITE_REQ_API_HOST
-# ENV VITE_REQ_API_HOST=$VITE_REQ_API_HOST
+# 환경 변수 선언
+ARG VITE_REQ_API_HOST
+ENV VITE_REQ_API_HOST=$VITE_REQ_API_HOST
 
-# # 컨테이너 작업디렉토리에 .env 생성
-# RUN echo "VITE_REQ_API_HOST=$VITE_REQ_API_HOST" > .env
+# 컨테이너 작업디렉토리에 .env 생성
+RUN echo "VITE_REQ_API_HOST=$VITE_REQ_API_HOST" > .env
 
 # 프로젝트 소스 복사
 COPY . .
@@ -33,7 +33,7 @@ FROM nginx:alpine
 
 
 # nginx 설정 파일 변경
-# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Nginx 기본 index.html 대신 Vite 빌드 산출물 사용
 COPY --from=build /app/dist /usr/share/nginx/html
